@@ -1,0 +1,26 @@
+{
+  "name": "book_record_management",
+  "version": "1.0.0",
+  "description": "Library Managemnet System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ishmeetkaur36/Book_Record_Management.git"
+  },
+  "author": "Ishmeet Kaur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ishmeetkaur36/Book_Record_Management/issues"
+  },
+  "homepage": "https://github.com/Ishmeetkaur36/Book_Record_Management#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
