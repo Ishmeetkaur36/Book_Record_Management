@@ -127,6 +127,24 @@ app.put("/users/:id" ,(req,res) =>{
   });
 });
 
+/*
+ * Route: /users/:id
+ * Method: DELETE
+ * Description: Delete user by id
+ * Access: Public
+ * Parameters: id
+ */
+app.delete("/users/:id" , (req,res) =>{
+  const {id} = req.params;
+  const user = users.find((each) => each.id ===id);
+  if(!user){
+    return res.status(404).json({
+      success : false,
+      message : "USER ID DOES NOT EXITS !",
+    });
+  }
+});
+
 app.get("*", (req, res) => {
   res.status(404).json({
     message: "This route doesn't exits",
