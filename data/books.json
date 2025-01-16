@@ -6,15 +6,17 @@
       "author": "J.R.R. Tolkien",
       "genre": "Fantasy",
       "price": "12.99",
+      "issuedBy" : "John",
       "publisher": "Houghton Mifflin"
     },
-    {
+     {
       "id": "2",
-      "name": "The Land Before Time",
-      "author": "Alan Moore",
-      "genre": "Fantasy",
-      "price": "12.99",
-      "publisher": "Houghton Mifflin"
+      "name": "The Fault in Our Stars",
+      "author": "John Green",
+      "genre": "Romance",
+      "price": "11.6",
+      "issuedBy" : "Jane",
+      "publisher": "Dutton Books"
     },
     {
       "id": "3",
@@ -22,7 +24,16 @@
       "author": "Alan Moore",
       "genre": "Fantasy",
       "price": "12.99",
+      "issuedBy" : "Smith",
       "publisher": "Houghton Mifflin"
+    },
+    {
+      "id": "4",
+      "name": "Gone Girl",
+      "author": "Gillian Flynn",
+      "genre": "Mystery/Thriller",
+      "price": "13.11",
+      "publisher": "Crown Publishing Group"
     }
   ]
 }
