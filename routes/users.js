@@ -52,7 +52,7 @@ router.get("/:id" , (req,res) => {
  * Parameters: none
  */
 router.post("/" ,(req,res) =>{
-  const {id, name, surname, email, subscriptionType ,subscriptionDate } = req.body
+  const {id, name, surname, email, subscriptionType ,subscriptionDate } = req.body;
 
   const user =users.find((each) => each.id === id)
   if(user){
@@ -134,6 +134,54 @@ router.delete("/:id" , (req,res) =>{
     message : "USER DELETED",
     data : users,
   });
+});
+
+/*
+ * Route: /users/subscriptionDetails/:id
+ * Method: GET
+ * Description: Get all users subscription details
+ * Access: Public
+ * Parameters: id
+ */
+router.get("/subscriptionDetails/:id" , (req,res)=>{
+  const {id} =req.params;
+  const user = users.find((each) => each.id === id);
+
+  if(!user){
+    return res.status(404).json({
+      success : false,
+      message : "USER WITH GIVEN ID DOES NOT EXIST !",
+    });
+  }
+
+  const getDateInDays = (data = "") =>{
+    let date;
+    if(data === ""){
+      date = new Date();                    //Current date
+    }
+    else{
+      date = new Date(data);                //Provided Date
+    }
+    
+    //~ Calculates no of days from current day
+    let days = Math.floor(date/(1000*60*60*24));
+    return days;
+
+  };
+    const subscriptionType = (date) =>{
+      if((user.subscriptionType = "Basic")){
+        date = date + 90;
+      }
+      else if((user.subscriptionType = "Standard")){
+        date = date + 180;
+      }
+      if((user.subscriptionType = "Premium")){
+        date = date + 365;
+      }
+      return date;
+    };
+
+
 });
 
 module.exports = router;

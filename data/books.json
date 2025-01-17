@@ -6,7 +6,6 @@
       "author": "J.R.R. Tolkien",
       "genre": "Fantasy",
       "price": "12.99",
-      "issuedBy" : "John",
       "publisher": "Houghton Mifflin"
     },
      {
@@ -15,7 +14,6 @@
       "author": "John Green",
       "genre": "Romance",
       "price": "11.6",
-      "issuedBy" : "Jane",
       "publisher": "Dutton Books"
     },
     {
@@ -24,7 +22,6 @@
       "author": "Alan Moore",
       "genre": "Fantasy",
       "price": "12.99",
-      "issuedBy" : "Smith",
       "publisher": "Houghton Mifflin"
     },
     {
