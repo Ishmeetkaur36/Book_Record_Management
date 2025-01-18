@@ -31,6 +31,14 @@
       "genre": "Mystery/Thriller",
       "price": "13.11",
       "publisher": "Crown Publishing Group"
+    },
+    {
+      "id": "5",
+      "name": "Animal Farm",
+      "author": "George Orwell",
+      "genre": "Political Satire",
+      "price": "12.44",
+      "publisher": "Secker & Warburg"
     }
   ]
 }

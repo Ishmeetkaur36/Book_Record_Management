@@ -1,80 +1,42 @@
 # Book_Record_Management
 
-<!-- /*
-  & Route: /users
-  & Method: GET
-  & Description: Get all users
-  & Access: Public
-  & Parameters: None
-*/ -->
-<!-- {
-  "users":
-  [
-    {
-      "id": "1",
-      "name": "Franklin",
-      "surname": "Joe",
-      "email": "user1@email.com",
-      "issuedBook": "1",
-      "issuedDate": "04/01/2024",
-      "returnDate": "05/01/2024",
-      "subscriptionType": "Premium",
-      "subscriptionDate": "04/01/2024"
-    },
-    {
-      "id": "2",
-      "name": "Katie",
-      "surname": "Brown",
-      "email": "user2@email.com",
-      "issuedBook": "2",
-      "issuedDate": "01/07/2021",
-      "returnDate": "01/10/2021",
-      "subscriptionType": "Basic",
-      "subscriptionDate": "03/01/2022"
-    },
-    {
-      "id": "3",
-      "name": "James",
-      "surname": "Klen",
-      "email": "user3@email.com",
-      "issuedBook": "3",
-      "issuedDate": "01/07/2021",
-      "returnDate": "01/10/2021",
-      "subscriptionType": "Basic",
-      "subscriptionDate": "01/01/2022"
-    },
-    {
-      "id": "4",
-      "name": "Furry",
-      "surname": "Teddy",
-      "email": "user4@email.com",
-      "subscriptionType": "Premium",
-      "subscriptionDate": "01/01/2022"
-    }
-  ]
-} -->
+Server >> Storing certain book data >> User Register >> Subscriber
 
-<!-- {
-      "id": "1",
-      "name": "The Fault in Our Stars",
-      "author": "John Green",
-      "genre": "Romance",
-      "price": "11.6",
-      "publisher": "Dutton Books"
-    },
-    {
-      "id": "2",
-      "name": "Animal Farm",
-      "author": "George Orwell",
-      "genre": "Political Satire",
-      "price": "12.44",
-      "publisher": "Secker & Warburg"
-    },
-    {
-      "id": "3",
-      "name": "Gone Girl",
-      "author": "Gillian Flynn",
-      "genre": "Mystery/Thriller",
-      "price": "13.11",
-      "publisher": "Crown Publishing Group"
-    } -->
+This is a book record managemnt API Server/ Backend for the library system or managemnet of records or manuals or books
+
+=> Fine System: User: 06/03/2023 - 06/06/2023 09/06/2023 => 50\*3=150/-
+
+=> Subscription Types \* 3 months (Basic) 6 months (Standard) 12 months (Premium)
+
+    * If the subscription type is standard && if the subscription date is 06/03/2023 => then subscription valid till 06/09/2023
+
+    * within subscription date >> if we miss the renewal >>50/- day subscription date is also been missded >> and also missed the renewal >> 100 + 50/- day
+
+    * book1 basic 06/03/2023 -> subscription date 07/03/2023 => borrowed a book from library book1 renewal date is on 21/03/2023 23/03/2023 => we need to pay a fine of 50
+
+    * book2 basic 06/03/2023 -> subscription date 07/03/2023 => borrowed a book from library book2 renewal date is on 21/03/2023 23/06/2023 => we need to pay a fine of 100+50
+
+    * missed by renewal date >> 50/- missed by subscription date >> 100/- missed by renewal && subscription date >> 150/-
+
+=> Routes and Endpoints
+
+- /users
+  POST: Creating a new user GET: Get all the users
+
+- /users/{id}
+  GET: Get user by id PUT: Updating a user by their ID DELETE: Delete a user by id (chk if he/she still have an issued book) && (is there any fine to paid)
+
+- /users/subscription-details/{id}
+  GET: Get user subscription details >> Date of Subscription >> Valid till >> Is there any fine
+
+- /books
+  GET: Get all the books POST: Create/Add a new book
+
+- /books/{id}
+  GET: Get a book by id PUT: Update a book by id
+
+- /books/issued
+  GET: Get all issued books
+
+- /books/issued/withFine
+  GET: Get all issued books with their fine

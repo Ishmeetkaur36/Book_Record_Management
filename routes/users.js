@@ -169,17 +169,42 @@ router.get("/subscriptionDetails/:id" , (req,res)=>{
 
   };
     const subscriptionType = (date) =>{
-      if((user.subscriptionType = "Basic")){
+      if((user.subscriptionType == "Basic")){
         date = date + 90;
       }
-      else if((user.subscriptionType = "Standard")){
+      else if((user.subscriptionType == "Standard")){
         date = date + 180;
       }
-      if((user.subscriptionType = "Premium")){
+      if((user.subscriptionType =="Premium")){
         date = date + 365;
       }
       return date;
     };
+
+    let returnDate = getDateInDays(user.returnDate);
+    let currentDate = getDateInDays();
+    let subscriptionDate = getDateInDays(user.subscriptionDate);
+    let subscriptionExpiration = subscriptionType(subscriptionDate);
+
+    const data = {
+      ...users,
+      isSubscriptionExpired : subscriptionExpiration <= currentDate,
+      daysLeftForExpiration : 
+        subscriptionExpiration <= currentDate ?
+            0  
+          : subscriptionExpiration - currentDate,
+      fine :
+        returnDate < currentDate ?
+          subscriptionExpiration <= currentDate ?
+              100
+              :50
+          : 0,    
+    };
+    return res.status(200).json({
+      success : true,
+      message : "SUBSCRIPTION DETAILS",
+      data,
+    });
 
 
 });

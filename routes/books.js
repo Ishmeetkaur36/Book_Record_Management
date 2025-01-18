@@ -58,6 +58,8 @@ router.get("/" ,(req,res)=>{
   });
 });
 
+
+
 /*
  ^ Route: /books/:id
  ^ Method: GET
@@ -150,11 +152,68 @@ router.put("/update/:id" , (req,res) =>{
 });
 
 
+// /*
+//  ^ Route: /books/issued/fine
+//  ^ Method: GET
+//  ^ Description: Get all issued books with fine
+//  ^ Access: Public
+//  ^ Parameters: none
+//  */
+// router.get("/issued/fine", (req, res) => {
+//   //  users who have issued books
+//   const usersWithTheIssuedBook = users.filter((each) => each.issuedBook);
 
+//   const issuedBooksWithFine = [];
 
+  
+//   const getDateInDays = (data) => {
+//     let date;
+//     if (data === "") {
+//       date = new Date();
+//     } else {
+//       date = new Date(data);
+//     }
+//     return Math.floor(date / (1000 * 60 * 60 * 24));
+//   };
 
+//   // Current date in days
+//   const currentDate = getDateInDays();
 
+//   // Iterate through users with issued books
+//   usersWithTheIssuedBook.forEach((each) => {
+//     const book = books.find((book) => book.id === each.issuedBook);
 
+//     if (book) {
+//       const issuedDate = getDateInDays(each.issuedDate);
+//       const returnDate = getDateInDays(each.returnDate);
+      
+//       // Calculate fine if return date is overdue
+//       const fine = currentDate > returnDate ? (currentDate - returnDate) * 50 : 0;
 
+//       // Add book details
+//       book.issuedBy = each.name;
+//       book.issuedDate = each.issuedDate;
+//       book.returnDate = each.returnDate;
+//       book.fine = fine;
+
+//       issuedBooksWithFine.push(book);
+//     }
+//   });
+
+//   // If no issued books found
+//   if (issuedBooksWithFine.length === 0) {
+//     return res.status(404).json({
+//       success: false,
+//       message: "NO BOOKS HAVE BEEN ISSUED YET",
+//     });
+//   }
+
+//   // Return issued books with fine details
+//   return res.status(200).json({
+//     success: true,
+//     message: "ISSUED BOOKS WITH FINE",
+//     data: issuedBooksWithFine,
+//   });
+// });
 
 module.exports = router;
